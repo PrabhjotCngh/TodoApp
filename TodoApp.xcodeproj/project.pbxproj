@@ -13,6 +13,7 @@
 		8D6744342A2A27CC00D30320 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D6744332A2A27CC00D30320 /* Preview Assets.xcassets */; };
 		8D6744362A2A27CC00D30320 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6744352A2A27CC00D30320 /* Persistence.swift */; };
 		8D6744392A2A27CC00D30320 /* TodoApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8D6744372A2A27CC00D30320 /* TodoApp.xcdatamodeld */; };
+		8D6744412A2A28EB00D30320 /* AddTodoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6744402A2A28EB00D30320 /* AddTodoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		8D6744332A2A27CC00D30320 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		8D6744352A2A27CC00D30320 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		8D6744382A2A27CC00D30320 /* TodoApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TodoApp.xcdatamodel; sourceTree = "<group>"; };
+		8D6744402A2A28EB00D30320 /* AddTodoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTodoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,7 +58,7 @@
 			isa = PBXGroup;
 			children = (
 				8D67442C2A2A27C800D30320 /* TodoAppApp.swift */,
-				8D67442E2A2A27C800D30320 /* ContentView.swift */,
+				8D67443F2A2A28CC00D30320 /* View */,
 				8D6744302A2A27CC00D30320 /* Assets.xcassets */,
 				8D6744352A2A27CC00D30320 /* Persistence.swift */,
 				8D6744372A2A27CC00D30320 /* TodoApp.xcdatamodeld */,
@@ -71,6 +73,15 @@
 				8D6744332A2A27CC00D30320 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		8D67443F2A2A28CC00D30320 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8D67442E2A2A27C800D30320 /* ContentView.swift */,
+				8D6744402A2A28EB00D30320 /* AddTodoView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -147,6 +158,7 @@
 				8D67442F2A2A27C800D30320 /* ContentView.swift in Sources */,
 				8D67442D2A2A27C800D30320 /* TodoAppApp.swift in Sources */,
 				8D6744392A2A27CC00D30320 /* TodoApp.xcdatamodeld in Sources */,
+				8D6744412A2A28EB00D30320 /* AddTodoView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
