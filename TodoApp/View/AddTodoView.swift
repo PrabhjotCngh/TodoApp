@@ -21,6 +21,22 @@ struct AddTodoView: View {
     
     let priorities = ["High", "Normal", "Low"]
     
+    //MARK: - Function
+    private func addItem() {
+        withAnimation {
+            let todo = Todo(context: self.managedObjectContext)
+            todo.name = self.name
+            todo.priority = self.priority
+
+            do {
+                try managedObjectContext.save()
+            } catch {
+                let nsError = error as NSError
+                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+            }
+        }
+    }
+    
     //MARK: - Body
     var body: some View {
         NavigationView {
@@ -40,15 +56,7 @@ struct AddTodoView: View {
                     //MARK: - Save Button
                     Button {
                         if self.name != "" {
-                            let todo = Todo(context: self.managedObjectContext)
-                            todo.name = self.name
-                            todo.priority = self.priority
-                            
-                            do {
-                                try self.managedObjectContext.save()
-                            } catch {
-                                print(error)
-                            }
+                            addItem()
                         } else {
                             self.errorShowing = true
                             self.errorTitle = "Invalid Name"
@@ -73,14 +81,14 @@ struct AddTodoView: View {
                     } label: {
                         Image(systemName: "xmark")
                     } //: Button
-                } //: toolbar
-            }
+                }
+            } //: toolbar
             .alert(isPresented: $errorShowing) {
                 Alert(title: Text(errorTitle), message: Text(errorMessage), dismissButton: .default(
                         Text("OK")
                     )
                 )
-            }
+            } //: alert
         } //: NavigationView
     }
 }

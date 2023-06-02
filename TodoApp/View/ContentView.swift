@@ -11,93 +11,95 @@ import CoreData
 struct ContentView: View {
     //MARK: - Properties
     @State private var showingAddTodoView: Bool = false
-
+    
     @Environment(\.managedObjectContext) private var viewContext
-
-//    @FetchRequest(
-//        sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
-//        animation: .default)
-    //private var items: FetchedResults<Todo>
-
+    
+    @FetchRequest(
+        sortDescriptors: [NSSortDescriptor(keyPath: \Todo.name, ascending: true)],
+        animation: .default)
+    private var todos: FetchedResults<Todo>
+    
+    //MARK: - Functions
+    private func colorize(priority: String) -> Color {
+        switch priority {
+        case "High":
+            return .pink
+        case "Normal":
+            return .green
+        case "Low":
+            return .blue
+        default:
+            return .gray
+        }
+    }
+    
+    private func deleteItems(offsets: IndexSet) {
+        withAnimation {
+            offsets.map { todos[$0] }.forEach(viewContext.delete)
+            
+            do {
+                try viewContext.save()
+            } catch {
+                let nsError = error as NSError
+                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+            }
+        }
+    }
+    
     //MARK: - Body
     var body: some View {
         NavigationView {
-            List(0..<5) { item in
-                Text("test")
-            } //: List
-            .navigationTitle("Todo")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button {
-                        self.showingAddTodoView.toggle()
-                    } label: {
-                        Image(systemName: "plus")
-                    } //: Button
-                    .sheet(isPresented: $showingAddTodoView) {
-                        AddTodoView()
+            ZStack {
+                List {
+                    ForEach(self.todos, id: \.self) { todo in
+                        HStack {
+                            Circle()
+                                .frame(width: 12, height: 12, alignment: .center)
+                                .foregroundColor(self.colorize(priority: todo.priority ?? "Normal"))
+                            Text(todo.name ?? "Unknown")
+                                .fontWeight(.semibold)
+                            
+                            Spacer()
+                            
+                            Text(todo.priority ?? "Unkown")
+                                .font(.footnote)
+                                .foregroundColor(Color(UIColor.systemGray2))
+                                .padding(3)
+                                .frame(minWidth: 62)
+                                .overlay(
+                                    Capsule().stroke(Color(UIColor.systemGray2), lineWidth: 0.75)
+                                )
+                        } //: HSTACK
+                        .padding(.vertical, 10)
+                    } //: ForEach
+                    .onDelete(perform: deleteItems)
+                } //: List
+                .navigationTitle("Todo")
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        EditButton()
                     }
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button {
+                            self.showingAddTodoView.toggle()
+                        } label: {
+                            Image(systemName: "plus")
+                        } //: Button
+                        .sheet(isPresented: $showingAddTodoView) {
+                            AddTodoView()
+                        }
+                    }
+                } //: toolbar
+                
+                // MARK: - No Todo Items
+                if todos.count == 0 {
+                  //EmptyListView()
                 }
-            } //: toolbar
-//            List {
-//                ForEach(items) { item in
-//                    NavigationLink {
-//                        Text("Item at \(item.timestamp!, formatter: itemFormatter)")
-//                    } label: {
-//                        Text(item.timestamp!, formatter: itemFormatter)
-//                    }
-//                }
-//                .onDelete(perform: deleteItems)
-//            }
-//            .toolbar {
-//                ToolbarItem(placement: .navigationBarTrailing) {
-//                    EditButton()
-//                }
-//                ToolbarItem {
-//                    Button(action: addItem) {
-//                        Label("Add Item", systemImage: "plus")
-//                    }
-//                }
-//            }
-//            Text("Select an item")
+            } //: ZStack
         } //: NavigationView
     }
-/*
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(context: viewContext)
-            newItem.timestamp = Date()
-
-            do {
-                try viewContext.save()
-            } catch {
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
-        }
-    }
-
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            offsets.map { items[$0] }.forEach(viewContext.delete)
-
-            do {
-                try viewContext.save()
-            } catch {
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
-        }
-    }
- */
 }
-
-private let itemFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateStyle = .short
-    formatter.timeStyle = .medium
-    return formatter
-}()
 
 //MARK: - Preview
 struct ContentView_Previews: PreviewProvider {
