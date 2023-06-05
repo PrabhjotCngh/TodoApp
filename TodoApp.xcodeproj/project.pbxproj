@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		8D67442D2A2A27C800D30320 /* TodoAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D67442C2A2A27C800D30320 /* TodoAppApp.swift */; };
-		8D67442F2A2A27C800D30320 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D67442E2A2A27C800D30320 /* ContentView.swift */; };
 		8D6744312A2A27CC00D30320 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D6744302A2A27CC00D30320 /* Assets.xcassets */; };
 		8D6744342A2A27CC00D30320 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D6744332A2A27CC00D30320 /* Preview Assets.xcassets */; };
 		8D6744362A2A27CC00D30320 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6744352A2A27CC00D30320 /* Persistence.swift */; };
@@ -28,7 +27,6 @@
 /* Begin PBXFileReference section */
 		8D6744292A2A27C800D30320 /* TodoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TodoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D67442C2A2A27C800D30320 /* TodoAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoAppApp.swift; sourceTree = "<group>"; };
-		8D67442E2A2A27C800D30320 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		8D6744302A2A27CC00D30320 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8D6744332A2A27CC00D30320 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		8D6744352A2A27CC00D30320 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -101,7 +99,6 @@
 		8D67443F2A2A28CC00D30320 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				8D67442E2A2A27C800D30320 /* ContentView.swift */,
 				8D6744402A2A28EB00D30320 /* AddTodoView.swift */,
 				8D6744432A2A7BC500D30320 /* EmptyListView.swift */,
 				8D6744452A2DEA0500D30320 /* SettingsView.swift */,
@@ -216,7 +213,6 @@
 				8D6744552A2DFD7200D30320 /* ThemeModel.swift in Sources */,
 				8D67444A2A2DEAE800D30320 /* FormRowLinkView.swift in Sources */,
 				8D6744362A2A27CC00D30320 /* Persistence.swift in Sources */,
-				8D67442F2A2A27C800D30320 /* ContentView.swift in Sources */,
 				8D6744442A2A7BC500D30320 /* EmptyListView.swift in Sources */,
 				8D67442D2A2A27C800D30320 /* TodoAppApp.swift in Sources */,
 				8D6744392A2A27CC00D30320 /* TodoApp.xcdatamodeld in Sources */,
