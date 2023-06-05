@@ -16,6 +16,13 @@
 		8D6744412A2A28EB00D30320 /* AddTodoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6744402A2A28EB00D30320 /* AddTodoView.swift */; };
 		8D6744442A2A7BC500D30320 /* EmptyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6744432A2A7BC500D30320 /* EmptyListView.swift */; };
 		8D6744462A2DEA0500D30320 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6744452A2DEA0500D30320 /* SettingsView.swift */; };
+		8D6744482A2DEADE00D30320 /* FormRowStaticView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6744472A2DEADE00D30320 /* FormRowStaticView.swift */; };
+		8D67444A2A2DEAE800D30320 /* FormRowLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6744492A2DEAE800D30320 /* FormRowLinkView.swift */; };
+		8D67444C2A2DF36400D30320 /* Icons in Resources */ = {isa = PBXBuildFile; fileRef = 8D67444B2A2DF36400D30320 /* Icons */; };
+		8D67444F2A2DF8A200D30320 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D67444E2A2DF8A200D30320 /* Utility.swift */; };
+		8D6744552A2DFD7200D30320 /* ThemeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6744542A2DFD7200D30320 /* ThemeModel.swift */; };
+		8D6744572A2DFD8E00D30320 /* ThemeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6744562A2DFD8E00D30320 /* ThemeData.swift */; };
+		8D6744592A2DFDAF00D30320 /* ThemeSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6744582A2DFDAF00D30320 /* ThemeSettings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +37,13 @@
 		8D6744422A2A78F000D30320 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8D6744432A2A7BC500D30320 /* EmptyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyListView.swift; sourceTree = "<group>"; };
 		8D6744452A2DEA0500D30320 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		8D6744472A2DEADE00D30320 /* FormRowStaticView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormRowStaticView.swift; sourceTree = "<group>"; };
+		8D6744492A2DEAE800D30320 /* FormRowLinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormRowLinkView.swift; sourceTree = "<group>"; };
+		8D67444B2A2DF36400D30320 /* Icons */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Icons; sourceTree = "<group>"; };
+		8D67444E2A2DF8A200D30320 /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
+		8D6744542A2DFD7200D30320 /* ThemeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeModel.swift; sourceTree = "<group>"; };
+		8D6744562A2DFD8E00D30320 /* ThemeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeData.swift; sourceTree = "<group>"; };
+		8D6744582A2DFDAF00D30320 /* ThemeSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSettings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,9 +77,12 @@
 			isa = PBXGroup;
 			children = (
 				8D6744422A2A78F000D30320 /* Info.plist */,
-				8D67442C2A2A27C800D30320 /* TodoAppApp.swift */,
+				8D6744512A2DFD5A00D30320 /* Theme */,
+				8D6744502A2DF8D100D30320 /* App */,
 				8D67443F2A2A28CC00D30320 /* View */,
+				8D67444D2A2DF89500D30320 /* Utility */,
 				8D6744302A2A27CC00D30320 /* Assets.xcassets */,
+				8D67444B2A2DF36400D30320 /* Icons */,
 				8D6744352A2A27CC00D30320 /* Persistence.swift */,
 				8D6744372A2A27CC00D30320 /* TodoApp.xcdatamodeld */,
 				8D6744322A2A27CC00D30320 /* Preview Content */,
@@ -88,8 +105,36 @@
 				8D6744402A2A28EB00D30320 /* AddTodoView.swift */,
 				8D6744432A2A7BC500D30320 /* EmptyListView.swift */,
 				8D6744452A2DEA0500D30320 /* SettingsView.swift */,
+				8D6744472A2DEADE00D30320 /* FormRowStaticView.swift */,
+				8D6744492A2DEAE800D30320 /* FormRowLinkView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		8D67444D2A2DF89500D30320 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				8D67444E2A2DF8A200D30320 /* Utility.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		8D6744502A2DF8D100D30320 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				8D67442C2A2A27C800D30320 /* TodoAppApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		8D6744512A2DFD5A00D30320 /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				8D6744542A2DFD7200D30320 /* ThemeModel.swift */,
+				8D6744562A2DFD8E00D30320 /* ThemeData.swift */,
+				8D6744582A2DFDAF00D30320 /* ThemeSettings.swift */,
+			);
+			path = Theme;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,6 +195,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D67444C2A2DF36400D30320 /* Icons in Resources */,
 				8D6744342A2A27CC00D30320 /* Preview Assets.xcassets in Resources */,
 				8D6744312A2A27CC00D30320 /* Assets.xcassets in Resources */,
 			);
@@ -162,7 +208,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D67444F2A2DF8A200D30320 /* Utility.swift in Sources */,
+				8D6744592A2DFDAF00D30320 /* ThemeSettings.swift in Sources */,
 				8D6744462A2DEA0500D30320 /* SettingsView.swift in Sources */,
+				8D6744482A2DEADE00D30320 /* FormRowStaticView.swift in Sources */,
+				8D6744572A2DFD8E00D30320 /* ThemeData.swift in Sources */,
+				8D6744552A2DFD7200D30320 /* ThemeModel.swift in Sources */,
+				8D67444A2A2DEAE800D30320 /* FormRowLinkView.swift in Sources */,
 				8D6744362A2A27CC00D30320 /* Persistence.swift in Sources */,
 				8D67442F2A2A27C800D30320 /* ContentView.swift in Sources */,
 				8D6744442A2A7BC500D30320 /* EmptyListView.swift in Sources */,

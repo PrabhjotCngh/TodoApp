@@ -21,6 +21,12 @@ struct ContentView: View {
         animation: .default)
     private var todos: FetchedResults<Todo>
     
+    @EnvironmentObject var iconSettings: IconNames
+    
+    // Theme
+    @ObservedObject var theme = ThemeSettings.shared
+    var themes: [Theme] = themeData
+    
     //MARK: - Functions
     private func colorize(priority: String) -> Color {
         switch priority {
@@ -80,16 +86,19 @@ struct ContentView: View {
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
                     ToolbarItem(placement: .navigationBarLeading) {
-                        EditButton()
+                        EditButton()           .accentColor(themes[self.theme.themeSettings].themeColor)
+
                     }
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button {
-                            self.showingAddTodoView.toggle()
+                            self.showingSettingsView.toggle()
                         } label: {
-                            Image(systemName: "plus")
+                            Image(systemName: "paintbrush")
+                                .imageScale(.large)
                         } //: Button
-                        .sheet(isPresented: $showingAddTodoView) {
-                            AddTodoView()
+                        .accentColor(themes[self.theme.themeSettings].themeColor)
+                        .sheet(isPresented: $showingSettingsView) {
+                            SettingsView().environmentObject(self.iconSettings)
                         }
                     }
                 } //: toolbar
@@ -106,12 +115,12 @@ struct ContentView: View {
               ZStack {
                 Group {
                   Circle()
-                    //.fill(themes[self.theme.themeSettings].themeColor)
+                    .fill(themes[self.theme.themeSettings].themeColor)
                     .opacity(self.animatingButton ? 0.2 : 0)
                     .scaleEffect(self.animatingButton ? 1 : 0)
                     .frame(width: 68, height: 68, alignment: .center)
                   Circle()
-                    //.fill(themes[self.theme.themeSettings].themeColor)
+                    .fill(themes[self.theme.themeSettings].themeColor)
                     .opacity(self.animatingButton ? 0.15 : 0)
                     .scaleEffect(self.animatingButton ? 1 : 0)
                     .frame(width: 88, height: 88, alignment: .center)
@@ -127,7 +136,7 @@ struct ContentView: View {
                     .background(Circle().fill(Color("ColorBase")))
                     .frame(width: 48, height: 48, alignment: .center)
                 } //: BUTTON
-                  //.accentColor(themes[self.theme.themeSettings].themeColor)
+                  .accentColor(themes[self.theme.themeSettings].themeColor)
                   .onAppear {
                      self.animatingButton.toggle()
                   }
@@ -137,6 +146,7 @@ struct ContentView: View {
                 , alignment: .bottomTrailing
             )
         } //: NavigationView
+        .navigationViewStyle(.stack)
     }
 }
 
