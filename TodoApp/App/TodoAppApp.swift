@@ -14,6 +14,7 @@ struct TodoAppApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(IconNames())
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }

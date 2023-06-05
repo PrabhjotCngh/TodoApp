@@ -21,6 +21,10 @@ struct AddTodoView: View {
     
     let priorities = ["High", "Normal", "Low"]
     
+    // Theme
+    @ObservedObject var theme = ThemeSettings.shared
+    var themes: [Theme] = themeData
+    
     //MARK: - Function
     private func addItem() {
         withAnimation {
@@ -73,7 +77,7 @@ struct AddTodoView: View {
                             .font(.system(size: 24, weight: .bold, design: .default))
                             .padding()
                             .frame(minWidth: 0, maxWidth: .infinity)
-                            //.background(themes[self.theme.themeSettings].themeColor)
+                            .background(themes[self.theme.themeSettings].themeColor)
                             .cornerRadius(9)
                             .foregroundColor(.white)
                     } //: Button
@@ -102,6 +106,8 @@ struct AddTodoView: View {
                 )
             } //: alert
         } //: NavigationView
+        .navigationViewStyle(.stack)
+        .accentColor(themes[self.theme.themeSettings].themeColor)
     }
 }
 
