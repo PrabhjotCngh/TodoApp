@@ -41,9 +41,13 @@ struct AddTodoView: View {
     var body: some View {
         NavigationView {
             VStack {
-                Form {
+                VStack(alignment: .leading, spacing: 20) {
                     //MARK: - Todo name
                     TextField("Todo", text: $name)
+                        .padding()
+                        .background(Color(.tertiarySystemFill))
+                        .cornerRadius(9)
+                        .font(.system(size: 24, weight: .bold, design: .default))
                     
                     //MARK: - Todo Priority
                     Picker("Priority", selection: $priority) {
@@ -66,8 +70,16 @@ struct AddTodoView: View {
                         self.presentationMode.wrappedValue.dismiss()
                     } label: {
                         Text("Save")
+                            .font(.system(size: 24, weight: .bold, design: .default))
+                            .padding()
+                            .frame(minWidth: 0, maxWidth: .infinity)
+                            //.background(themes[self.theme.themeSettings].themeColor)
+                            .cornerRadius(9)
+                            .foregroundColor(.white)
                     } //: Button
-                } //: Form
+                } //: VStack
+                .padding(.horizontal)
+                .padding(.vertical, 30)
                 
                 Spacer()
                 
